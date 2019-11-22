@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MultiThreadDownloadManager.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self startDownload];
     // Do any additional setup after loading the view.
 }
 
+- (void) startDownload {
+    MultiThreadDownloadManager *downloader = [[MultiThreadDownloadManager alloc] init];
+    [downloader downloadFileFromStringURL: @"https://dl.google.com/chrome/mac/stable/CHFA/googlechrome.dmg"];
+}
 
 @end

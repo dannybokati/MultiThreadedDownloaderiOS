@@ -17,6 +17,7 @@
 		30A44206238790C00001283F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A44205238790C00001283F /* main.m */; };
 		30A44210238790C00001283F /* MultiThreadedDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4420F238790C00001283F /* MultiThreadedDownloaderTests.m */; };
 		30A4421B238790C00001283F /* MultiThreadedDownloaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4421A238790C00001283F /* MultiThreadedDownloaderUITests.m */; };
+		30A4422B238796CF0001283F /* MultiThreadDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4422A238796CF0001283F /* MultiThreadDownloadManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		30A44216238790C00001283F /* MultiThreadedDownloaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiThreadedDownloaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A4421A238790C00001283F /* MultiThreadedDownloaderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiThreadedDownloaderUITests.m; sourceTree = "<group>"; };
 		30A4421C238790C00001283F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30A44229238796A80001283F /* MultiThreadDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiThreadDownloadManager.h; sourceTree = "<group>"; };
+		30A4422A238796CF0001283F /* MultiThreadDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiThreadDownloadManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 		30A441EF238790BF0001283F /* MultiThreadedDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				30A44228238794CC0001283F /* MultiThreadedDownloadManager */,
 				30A441F0238790BF0001283F /* AppDelegate.h */,
 				30A441F1238790BF0001283F /* AppDelegate.m */,
 				30A441F3238790BF0001283F /* SceneDelegate.h */,
@@ -138,6 +142,15 @@
 				30A4421C238790C00001283F /* Info.plist */,
 			);
 			path = MultiThreadedDownloaderUITests;
+			sourceTree = "<group>";
+		};
+		30A44228238794CC0001283F /* MultiThreadedDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				30A44229238796A80001283F /* MultiThreadDownloadManager.h */,
+				30A4422A238796CF0001283F /* MultiThreadDownloadManager.m */,
+			);
+			path = MultiThreadedDownloadManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A44206238790C00001283F /* main.m in Sources */,
+				30A4422B238796CF0001283F /* MultiThreadDownloadManager.m in Sources */,
 				30A441F8238790BF0001283F /* ViewController.m in Sources */,
 				30A441F2238790BF0001283F /* AppDelegate.m in Sources */,
 				30A441F5238790BF0001283F /* SceneDelegate.m in Sources */,
