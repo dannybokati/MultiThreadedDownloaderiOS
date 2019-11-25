@@ -27,9 +27,6 @@
     
     //setting the total file size and chunk size
     
-//    self.connections = [NSMutableArray array];
-//    self.fileHandles = [NSMutableArray array];
-    
     self.fileSize = [self getSizeForFileFromUrl:URLString];
     self.chunkSize = [self getChunkSizeFromTotalFileSize:[self fileSize]];
     
@@ -52,14 +49,13 @@
         
         //perform asynchronous downloads
         
-//        dispatch_async(serialQueue, ^{
-            //block1
-        
+        dispatch_async(serialQueue, ^{
+//            //block1
+//
         
             [self downloadFileWithURLString:URLString fileIndex:fileIndex startByte:startByte endByte:endByte];
-//        });
+        });
     
-        
         fileIndex ++;
     }
 
@@ -90,12 +86,6 @@
     
     
     //permanent code
-    NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath:databasePath];
-    [self.fileHandles addObject:fh];
-    
-    //code to be removed
-//    NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath:databasePath];
-//    self.tempFileHandle = fh;
     
     NSString *filePath=[NSString stringWithFormat:@"%@",databasePath];
     NSLog(@"%@", filePath);
@@ -114,12 +104,19 @@
     conn = [NSURLConnection connectionWithRequest:req delegate:self];
     
     //permanent code
+    
+    //  setting filehandle array
+    
+    NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath:databasePath];
+    if (!self.fileHandles) self.fileHandles = [[NSMutableArray alloc] init];
+    [self.fileHandles addObject:fh];
+    
+    // setting connection array
+    
+    if (!self.connections) self.connections = [[NSMutableArray alloc] init];
     [self.connections addObject:conn];
     [conn start];
-    
-    //code to be removed
-//    self.tempConnection = conn;
-//    [conn start];
+    NSLog(@"The connections count is %d and the file handles count is %d.", self.connections.count, self.fileHandles.count);
 }
 
 
