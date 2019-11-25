@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "-connection:didFailWithError:"
-            landmarkType = "7">
+            landmarkName = "MultiThreadDownloadManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -81,22 +81,6 @@
             startingLineNumber = "298"
             endingLineNumber = "298"
             landmarkName = "-connectionDidFinishLoading:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0400E91C-FCF8-4FFF-B7BB-D1D20F63B980"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MultiThreadedDownloader/MultiThreadedDownloadManager/MultiThreadDownloadManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-downloadFileWithURLString:fileIndex:startByte:endByte:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

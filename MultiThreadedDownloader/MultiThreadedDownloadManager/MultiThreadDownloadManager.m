@@ -49,12 +49,12 @@
         
         //perform asynchronous downloads
         
-        dispatch_async(serialQueue, ^{
+//        dispatch_async(serialQueue, ^{
 //            //block1
 //
         
             [self downloadFileWithURLString:URLString fileIndex:fileIndex startByte:startByte endByte:endByte];
-        });
+//        });
     
         fileIndex ++;
     }
@@ -123,13 +123,13 @@
 -(NSUInteger) getSizeForFileFromUrl:(NSString *) URLString {
     
     // Perform operations or network call here which can calculate the size of required file to be downloaded
-    return 55000;
+    return 5500000;
 }
 
 -(NSUInteger) getChunkSizeFromTotalFileSize:(NSUInteger ) fileSize {
     
     //perform calculations here if you wish to create a chunk size based upon file size
-    return 10000;
+    return 1000000;
 }
 
 
@@ -138,25 +138,25 @@
 
 //delegate methods
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    
-    NSLog(@"connection didFailWithError");
-
-    if(error.code==-1009){
-        NSLog(@"connection didFailWithError");
-       //do something
-    }
-    
-    for (NSURLConnection *connectionFromArray in [self connections]) {
-        if (connectionFromArray  == connection) {
-            [connectionFromArray cancel];
-        }
-    }
-    
-    //Old Logic
-    //self.downloadingConnection = nil;
-    //Show an alert for the error
-}
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+//    
+//    NSLog(@"connection didFailWithError");
+//
+//    if(error.code==-1009){
+//        NSLog(@"connection didFailWithError");
+//       //do something
+//    }
+//    
+//    for (NSURLConnection *connectionFromArray in [self connections]) {
+//        if (connectionFromArray  == connection) {
+//            [connectionFromArray cancel];
+//        }
+//    }
+//    
+//    //Old Logic
+//    //self.downloadingConnection = nil;
+//    //Show an alert for the error
+//}
 
 
 - (void)connection:(NSURLConnection *)connection
@@ -172,7 +172,7 @@ didReceiveResponse:(NSURLResponse *)response
     NSFileHandle *fh;
     for (NSURLConnection *connectionFromArray in [self connections]) {
         if (connectionFromArray == connection) {
-            fh = [self.connections objectAtIndex:index];
+            fh = [self.fileHandles objectAtIndex:index];
         }
         index ++;
     }
@@ -283,7 +283,7 @@ didReceiveResponse:(NSURLResponse *)response
     NSFileHandle *fh;
     for (NSURLConnection *connectionFromArray in [self connections]) {
         if (connectionFromArray == connection) {
-            fh = [self.connections objectAtIndex:index];
+            fh = [self.fileHandles objectAtIndex:index];
         }
         index ++;
     }
@@ -299,9 +299,9 @@ didReceiveResponse:(NSURLResponse *)response
     NSFileHandle *fh;
     for (NSURLConnection *connectionFromArray in [self connections]) {
         if (connectionFromArray == connection) {
-            fh = [self.connections objectAtIndex:index];
+            fh = [self.fileHandles objectAtIndex:index];
             [fh closeFile];
-            [[self.connections objectAtIndex:index] close];
+//            [[self.connections objectAtIndex:index] close];
         }
         index ++;
     }
