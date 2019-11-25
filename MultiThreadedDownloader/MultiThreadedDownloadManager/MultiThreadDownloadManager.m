@@ -138,25 +138,25 @@
 
 //delegate methods
 
-//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-//    
-//    NSLog(@"connection didFailWithError");
-//
-//    if(error.code==-1009){
-//        NSLog(@"connection didFailWithError");
-//       //do something
-//    }
-//    
-//    for (NSURLConnection *connectionFromArray in [self connections]) {
-//        if (connectionFromArray  == connection) {
-//            [connectionFromArray cancel];
-//        }
-//    }
-//    
-//    //Old Logic
-//    //self.downloadingConnection = nil;
-//    //Show an alert for the error
-//}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+    NSLog(@"connection didFailWithError");
+
+    if(error.code==-1009){
+        NSLog(@"connection didFailWithError");
+       //do something
+    }
+    
+    for (NSURLConnection *connectionFromArray in [self connections]) {
+        if (connectionFromArray  == connection) {
+            [connectionFromArray cancel];
+        }
+    }
+    
+    //Old Logic
+    //self.downloadingConnection = nil;
+    //Show an alert for the error
+}
 
 
 - (void)connection:(NSURLConnection *)connection
@@ -301,24 +301,13 @@ didReceiveResponse:(NSURLResponse *)response
         if (connectionFromArray == connection) {
             fh = [self.fileHandles objectAtIndex:index];
             [fh closeFile];
-//            [[self.connections objectAtIndex:index] close];
+            
+            [connection cancel];
+//            should probably close the connection here and implement the logic for handling the merging of the file
+//            if ([self.connections objectAtIndex:index]) [[self.connections objectAtIndex:index] cancel];
         }
         index ++;
     }
-    
-//    [fh closeFile];
-////    self.fileHandle = nil;
-//    self.downloadingConnection = nil;
-////    self.downloadingDocset = nil;
-//
-//    NSFileManager *fm = [NSFileManager defaultManager];
-//    NSError *error = nil;
-////    if (![fm removeItemAtPath:docset.rootPath error:&error]) {
-////        // Show an error to the user
-////    }
-////    if (![fm moveItemAtPath:docset.downloadPath toPath:docset.rootPath error:&error]) {
-////        // Show an error to the user
-////    }
 }
 
 
